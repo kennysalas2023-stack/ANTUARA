@@ -1,88 +1,175 @@
-<div align="center">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ANTUARA — El Tiempo Esculpido en los Andes</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fuentes Editoriales de Lujo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0d0c0a;
+      color: #f5f2eb;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .font-serif-luxury {
+      font-family: 'Cormorant Garamond', serif;
+    }
+    /* Canvas fijo de fondo como en el video */
+    #webgl-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+    }
+    /* Degradado lateral para asegurar lectura de textos */
+    .vignette-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(13,12,10,0.75) 0%, rgba(13,12,10,0.2) 55%, rgba(13,12,10,0.4) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+    .step-section {
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 4rem 5rem;
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .step-section.active {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateY(0px);
+    }
+  </style>
+</head>
+<body>
 
-# 🏍️ RUDOLF MOTOS — Plataforma Oficial Taller BAJAJ
+  <!-- Fondo de Video / Secuencia de Imágenes -->
+  <canvas id="webgl-canvas"></canvas>
+  <div class="vignette-overlay"></div>
 
-**Sistema integral de gestión de taller, diagnóstico técnico por sistemas, business intelligence y CRM para Servicio Técnico Autorizado BAJAJ / Crosland Perú.**
+  <!-- Header Fijo (HUD Minimalista) -->
+  <header class="fixed top-0 left-0 w-full flex justify-between items-center px-12 py-6 z-50 text-xs tracking-[0.25em] uppercase border-b border-white/10 backdrop-blur-sm">
+    <div class="font-semibold text-sm tracking-[0.35em]">ANTUARA</div>
+    <nav class="hidden md:flex gap-8 text-white/70">
+      <a href="#s1" class="hover:text-white transition">Origen</a>
+      <a href="#s2" class="hover:text-white transition">Santuario</a>
+      <a href="#s3" class="hover:text-white transition">Artesanía</a>
+      <a href="#s4" class="hover:text-white transition">Colección</a>
+    </nav>
+    <div class="text-white/60">13°31′S 71°58′W • CUSCO</div>
+  </header>
 
-[![Licencia](https://img.shields.io/badge/licencia-Propietario%20%2F%20Comercial-blue?style=for-the-badge)](LICENSE)
-[![Estado](https://img.shields.io/badge/estado-Producción%20v2.4-emerald?style=for-the-badge)](https://github.com/)
-[![BAJAJ](https://img.shields.io/badge/Servicio_Oficial-BAJAJ%20%2F%20Crosland-0052CC?style=for-the-badge&logo=motorcycle)](https://www.bajaj.pe)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
-[![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org)
+  <!-- Contenedor de Scroll (4 Estaciones) -->
+  <main class="relative z-10">
 
-</div>
+    <!-- ESTACIÓN 1: HERO (Equivalente a "VILLA MARAVILHA") -->
+    <section id="s1" class="step-section active">
+      <div class="max-w-2xl">
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80 mb-2">Alta Relojería Artesanal • Cusco, Perú</p>
+        <h1 class="font-serif-luxury text-6xl md:text-8xl tracking-wide leading-none mb-4">ANTUARA<br>ANDES</h1>
+        <p class="text-sm text-white/75 font-light max-w-md">
+          Piezas únicas talladas en maderas nobles certificadas, diseñadas para quienes valoran el tiempo con historia e identidad.
+        </p>
+      </div>
+    </section>
 
----
+    <!-- ESTACIÓN 2: VISTA AÉREA (Equivalente a "BETWEEN SEA AND CENOTE") -->
+    <section id="s2" class="step-section">
+      <div class="max-w-xl">
+        <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80 mb-2">01 / Origen Sostenible</p>
+        <h2 class="font-serif-luxury text-5xl md:text-7xl leading-none mb-6">ENTRE EL BOSQUE<br>Y LA PIEDRA INCA</h2>
+        <div class="space-y-3 text-xs tracking-widest uppercase border-t border-white/20 pt-4">
+          <div class="flex justify-between py-2 border-b border-white/10"><span>Material</span><span class="text-amber-200">100% Hipoalergénico (Libre de Níquel)</span></div>
+          <div class="flex justify-between py-2 border-b border-white/10"><span>Grabado Láser</span><span class="text-amber-200">Iconografía de Sacsayhuamán</span></div>
+          <div class="flex justify-between py-2 border-b border-white/10"><span>Peso en Muñeca</span><span class="text-amber-200">Ultraligero — 35 Gramos</span></div>
+        </div>
+      </div>
+    </section>
 
-## 🏛️ Identidad & Respaldo Oficial
-* **Concesionario:** RUDOLF MOTOS — Servicio Técnico Autorizado BAJAJ
-* **RUC:** `10486946003`
-* **Representante Legal:** Rodolfo Alfaro Huaman Huillca
-* **Contacto / WhatsApp:** [+51 913 223 471](https://wa.me/51913223471)
-* **Red Oficial:** Crosland Automotriz Perú / Bajaj Motorcycles
-* **Modelos Homologados:** *Pulsar NS200, Pulsar N160, Dominar 400, Dominar 250, Boxer 150, Avenger 220 y Torito*.
+    <!-- ESTACIÓN 3: ACERCAMIENTO (Equivalente a "THE GARDEN ARRIVAL") -->
+    <section id="s3" class="step-section">
+      <div class="w-full flex flex-col md:flex-row justify-between items-end gap-8">
+        <div class="max-w-xl">
+          <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80 mb-2">02 / Ingeniería & Precisión</p>
+          <h2 class="font-serif-luxury text-5xl md:text-7xl leading-none mb-4">EL CORAZÓN<br>DEL TALLER</h2>
+          <p class="text-sm text-white/75 font-light">
+            Maquinaria de cuarzo japonés ensamblada a mano en Cusco, protegida dentro de un estuche de madera tallada de colección.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-xs border-t border-white/20 pt-4 w-full md:w-auto">
+          <div><span class="block text-white/50">MOVIMIENTO</span>Cuarzo Japonés</div>
+          <div><span class="block text-white/50">RETIRO EN TIENDA</span>Click & Collect Cusco</div>
+          <div><span class="block text-white/50">CAMBIOS</span>Sistema BORIS</div>
+          <div><span class="block text-white/50">GARANTÍA</span>Logística Inversa</div>
+        </div>
+      </div>
+    </section>
 
----
+    <!-- ESTACIÓN 4: INTERIOR Y PALETA DE MATERIALES (Equivalente a "NOON INTERIOR") -->
+    <section id="s4" class="step-section">
+      <div class="w-full flex flex-col md:flex-row justify-between items-end gap-8">
+        <div class="max-w-xl">
+          <p class="text-xs uppercase tracking-[0.3em] text-amber-200/80 mb-2">03 / Paleta de Maderas Nobles</p>
+          <h2 class="font-serif-luxury text-5xl md:text-7xl leading-none mb-4">DISEÑO<br>BUSINESS-QUARTZ</h2>
+          <p class="text-sm text-white/75 font-light mb-6">
+            Cada veta es irrepetible. Selecciona el tono de madera y personaliza el reverso con grabado láser.
+          </p>
+          <!-- Selector de Materiales como en el segundo 0:14 del video -->
+          <div class="flex gap-3">
+            <div class="w-16 h-16 rounded bg-[#3b281e] border border-white/40 p-2 flex items-end text-[10px] cursor-pointer hover:scale-105 transition">Nogal</div>
+            <div class="w-16 h-16 rounded bg-[#c8a165] border border-white/20 p-2 flex items-end text-[10px] text-black font-medium cursor-pointer hover:scale-105 transition">Bambú</div>
+            <div class="w-16 h-16 rounded bg-[#7a3b2e] border border-white/20 p-2 flex items-end text-[10px] cursor-pointer hover:scale-105 transition">Caspi</div>
+            <div class="w-16 h-16 rounded bg-[#1c1917] border border-white/20 p-2 flex items-end text-[10px] cursor-pointer hover:scale-105 transition">Ébano</div>
+          </div>
+        </div>
 
-## ⚡ Características Principales
+        <a href="https://wa.me/51900000000" target="_blank" class="px-8 py-4 bg-[#f5f2eb] text-black text-xs uppercase tracking-[0.25em] font-medium hover:bg-amber-200 transition">
+          Reservar Pieza • S/. 500.00
+        </a>
+      </div>
+    </section>
 
-### 📋 1. Hoja de Cálculo Interactiva (Grid Excel / Airtable)
-- **Edición en celda:** Doble clic sobre Placa, Cliente, Modelo o Estado con guardado reactivo instantáneo.
-- **Buscador en vivo:** Filtrado instantáneo por placa peruana (`5421-8B`), DNI, cliente o N° de orden.
-- **Exportación masiva:** Descarga en 1 clic de reportes en **Microsoft Excel (.xlsx)** y **CSV** con SheetJS.
-- **Totales en tiempo real:** Sumatorias automáticas de facturación, adelantos cobrados y saldos pendientes.
+  </main>
 
-### 🔧 2. Orden Técnica Oficial de 7 Sistemas Clave
-- Checklist estructurado idéntico a la cartilla física de taller:
-  1. **Transmisión:** Cadena, piñón, embrague, corona.
-  2. **Frenos:** Pastillas Bybre, discos, caliper, líquido DOT4, ABS.
-  3. **Suspensión:** Horquilla telescópica, monoshock Nitrox.
-  4. **Chasis:** Cunas de dirección, basculante, rodamientos.
-  5. **Motor DTS-i:** Calibración de válvulas, afinamiento, aceite Motul.
-  6. **Sistema Eléctrico:** Batería, bujías triple chispa, inyección EFI.
-  7. **Servicios Terceros:** Torno, rectificación de discos y cilindro, pintura.
-- **Liquidación financiera cuádruple:** Mano de obra + Repuestos Crosland + Terceros = Total (S/.) con cálculo de saldo y adelantos.
-- **Lienzo de firmas táctiles HTML5 Canvas:** Firma digital del cliente y del mecánico jefe.
-- **Impresión PDF:** Formato membretado listo para imprimir o enviar por WhatsApp.
+  <!-- Librerías GSAP + ScrollTrigger + Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
-### 📷 3. Motor OCR / Escáner Multimodal
-- Escaneo de Tarjetas de Propiedad SUNARP y DNI mediante cámara o arrastre de imagen.
-- Extracción local con **Tesseract.js** (sin costos de API externa).
-- Autocompletado inteligente en 3 niveles: Historial Local → API K1.pe → OCR en Navegador.
+  <script>
+    // 1. Inicializar Scroll Suave (Lenis)
+    const lenis = new Lenis({ duration: 1.4, smoothWheel: true });
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-### 📊 4. Dashboard BI & CRM de Fidelización
-- **Evaluación Gerencial:** Facturación diaria, mensual y anual consolidada.
-- **Productividad:** Rendimiento y volumen de motos atendidas por cada mecánico.
-- **CRM WhatsApp:** Alertas automáticas a clientes para mantenimientos de 5,000 km y 10,000 km en 1 clic.
+    // 2. Activar las secciones con efecto Blur al hacer Scroll
+    const sections = document.querySelectorAll('.step-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        } else {
+          entry.target.classList.remove('active');
+        }
+      });
+    }, { threshold: 0.45 });
 
----
-
-## 🛠️ Stack Tecnológico
-
-| Capa | Tecnología |
-| :--- | :--- |
-| **Frontend** | HTML5 Semántico, Vanilla JavaScript (ES6+ modular) |
-| **Estilos** | Tailwind CSS (Dark Cockpit Bajaj theme), Glassmorphism, CSS Custom Properties |
-| **Visualización** | Chart.js 4.4 |
-| **Motor OCR** | Tesseract.js v5 (procesamiento en cliente vía WebAssembly) |
-| **Hojas de Cálculo** | SheetJS (xlsx v0.18.5) |
-| **Persistencia** | IndexedDB v3 + LocalStorage con soporte Firebase Firestore |
-| **Iconografía** | Lucide Icons |
-
----
-
-## 🚀 Despliegue Rápido
-
-### Opción 1: En Línea (Vercel / Netlify / GitHub Pages)
-La plataforma no requiere compilación previa (Zero Build Step).
-
-* **Vercel:** Sube el proyecto o conéctalo a este repositorio. Incluye `vercel.json` preconfigurado.
-* **GitHub Pages:**
-  1. Ve a **Settings** > **Pages** en tu repositorio de GitHub.
-  2. En **Branch**, selecciona `main` y carpeta `/ (root)`.
-  3. Guarda y accede en segundos a tu URL pública.
-
-### Opción 2: Ejecución Local en Windows
-Haz doble clic sobre el archivo ejecutable:
-```cmd
-start.bat
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>
